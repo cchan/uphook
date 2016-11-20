@@ -1,0 +1,22 @@
+{
+  "name": "uphook",
+  "version": "0.0.1",
+  "description": "express middleware to automatically update and restart an application when the remote is updated and webhooked",
+  "main": "uphook.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cchan/uphook.git"
+  },
+  "author": "Clive Chan (cc@clive.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cchan/uphook/issues"
+  },
+  "homepage": "https://github.com/cchan/uphook#readme",
+  "dependencies": {
+    "git-branch": "^0.3.0"
+  }
+}
