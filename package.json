@@ -1,6 +1,6 @@
 {
   "name": "uphook",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "express middleware to automatically update and restart an application when the remote is updated and webhooked",
   "main": "uphook.js",
   "scripts": {
