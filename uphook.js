@@ -13,7 +13,7 @@ usage: if verified hook on right branch, git force-pulls to current branch and c
         process.exit(0); //lets PM2 restart the process
     }
   });
-  express.use('/gh-update', hook);
+  app.use('/gh-update', hook);
 
 note that you should definitely use SSL because GitLab doesn't have HMAC, which is dumb.
 */
@@ -47,18 +47,12 @@ function gitupdate(req, res, callback){
     return promise;
 }
 
-function processArgs(options){
+let generalized = function(options, checkHeaders){
   let secret = options.secret;
   if(!secret) throw new Error('No secret given');
   
   let verify = options.verify || function(){return true;}
   let callback = options.callback || function(){};
-  
-  return {secret, verify, callback};
-}
-
-let generalized = function(options, checkHeaders){
-  {secret, verify, callback} = processArgs(options);
   
   return [
     bodyParser.json({
