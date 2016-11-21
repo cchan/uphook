@@ -51,8 +51,7 @@ module.exports.gitlab = function(secret, callback){
       //'sha1=' + crypto.createHmac('sha1', secret).update(buffer).digest('hex') == req.headers['x-gitlab-signature'];
       if(req.headers['x-gitlab-token'] != secret)
         throw new Error('Invalid Token');
-      
-      if(req.headers['x-gitlab-event'] != 'Push Hook' || req.body.ref != 'refs/heads/' + branch)
+      else if(req.headers['x-gitlab-event'] != 'Push Hook' || req.body.ref != 'refs/heads/' + branch)
         res.sendStatus(200);
       else
         gitupdate(req, res, callback);
