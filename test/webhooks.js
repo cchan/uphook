@@ -8,7 +8,7 @@ let app = express();
 let uphook = require('../uphook');
 let fs = require('fs');
 
-app.post('/gh-hook', uphook.github({
+app.use('/gh-update', uphook.github({
   secret: secret,
   verify: function(){return false;}
 }));
@@ -16,7 +16,7 @@ app.post('/gh-hook', uphook.github({
 describe('github webhooks', function() {
   it('takes a valid GitHub webhook', function(done) {
     request(app, new Buffer(fs.readFileSync('./test/assets/github-valid.json'), 'base64'))
-      .post('/gh-hook')
+      .post('/gh-update')
       .set('content-type', 'application/json')
       .set('Expect', '')
       .set('User-Agent', 'GitHub-Hookshot/ac156fb')
