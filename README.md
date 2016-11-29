@@ -2,6 +2,8 @@
 
 express middleware to automatically update and restart an application based on github/gitlab webhook.
 
+    npm install --save uphook
+
 ## usage
 if verified hook on right branch, git force-pulls to current branch and calls the callback.
 
